@@ -10,84 +10,25 @@
       font-family: 'Tajawal', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #fefefe, #ffe6e6); /* خلفية تناسب مكافحة التدخين */
-      color: #333;
+      background: #121212;
+      color: #e0e0e0;
     }
-    header {
-      text-align: center;
-      padding: 2rem;
-      background: #d32f2f; /* أحمر للتنبيه وموضوع مكافحة التدخين */
-      color: white;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid white;
-      margin-bottom: 10px;
-    }
-    nav {
-      background: #b71c1c;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a, nav button {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    nav a:hover, nav button:hover {
-      color: #ffebee;
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 15px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #b71c1c;
-      color: white;
-    }
-    textarea {
-      width: 100%;
-      height: 100px;
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-      resize: vertical;
-    }
-    button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      border-radius: 6px;
-      border: none;
-      background: #d32f2f;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .note-item {
-      border-bottom: 1px solid #eee;
-      padding: 5px 0;
-    }
+    header { text-align: center; padding: 2rem; background: #1f1f1f; color: #fff; }
+    header img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #bb86fc; margin-bottom: 10px; }
+    nav { background: #1b1b1b; padding: 10px; text-align: center; }
+    nav a, nav button { color: #bb86fc; margin: 0 10px; text-decoration: none; font-weight: bold; background: transparent; border: none; cursor: pointer; font-size: 1rem; }
+    nav a:hover, nav button:hover { color: #fff; }
+    section { max-width: 900px; margin: auto; padding: 20px; }
+    .card { background: #1f1f1f; border-radius: 12px; padding: 20px; margin: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    footer { text-align: center; padding: 15px; background: #1b1b1b; color: #bb86fc; }
+    textarea { width: 100%; height: 100px; padding: 10px; border-radius: 8px; border: 1px solid #444; font-size: 14px; resize: vertical; background: #2c2c2c; color: #e0e0e0; }
+    button { margin-top: 10px; padding: 8px 16px; border-radius: 6px; border: none; background: #bb86fc; color: #121212; cursor: pointer; font-weight: bold; }
+    .note-item { border-bottom: 1px solid #444; padding: 5px 0; display: flex; justify-content: space-between; align-items: center; }
+    .note-text { flex: 1; }
+    .note-actions button { margin-left: 5px; background: #333; color: #bb86fc; padding: 4px 8px; border-radius: 4px; }
+    .note-actions button:hover { background: #bb86fc; color: #121212; }
+    a { color: #bb86fc; } a:hover { color: #fff; }
   </style>
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <header>
@@ -97,25 +38,25 @@
   </header>
 
   <nav>
-    <a href="#about">من أنا</a>
-    <a href="#skills">مهاراتي</a>
-    <a href="#notes">ملاحظاتي</a>
-    <a href="#contact">تواصل</a>
+    <a href="#about" id="nav-about">من أنا</a>
+    <a href="#skills" id="nav-skills">مهاراتي</a>
+    <a href="#notes" id="nav-notes">ملاحظاتي</a>
+    <a href="#contact" id="nav-contact">تواصل</a>
     <button id="toggle-language">🌐 English</button>
     <button id="download-pdf">📄 تحميل PDF</button>
   </nav>
 
   <section id="about">
     <div class="card">
-      <h2>عنّي</h2>
-      <p>أقوم بمساعدة المدخنين للإقلاع عن التدخين مع تقديم النصائح اللازمة.</p>
+      <h2 id="about-title">عنّي</h2>
+      <p id="about-text">أقوم بمساعدة المدخنين للإقلاع عن التدخين مع تقديم النصائح اللازمة.</p>
     </div>
   </section>
 
   <section id="skills">
     <div class="card">
-      <h2>مهاراتي</h2>
-      <ul>
+      <h2 id="skills-title">مهاراتي</h2>
+      <ul id="skills-list">
         <li>تقديم نصائح واستشارات للإقلاع عن التدخين</li>
         <li>شروحات عن التبغ وأضراره</li>
         <li>إلقاء كلمات أو محاضرات عن التبغ وكيفية معالجته</li>
@@ -127,7 +68,7 @@
 
   <section id="notes">
     <div class="card">
-      <h2>ملاحظاتي اليومية</h2>
+      <h2 id="notes-title">ملاحظاتي اليومية</h2>
       <textarea id="new-note" placeholder="اكتب ملاحظتك هنا..."></textarea>
       <button onclick="addNote()">إضافة الملاحظة</button>
       <div id="notes-list"></div>
@@ -136,7 +77,7 @@
 
   <section id="contact">
     <div class="card">
-      <h2>تواصل معي</h2>
+      <h2 id="contact-title">تواصل معي</h2>
       <p>📱 +966501314338</p>
       <p>📧 ALNAHDI345@GMAIL.COM</p>
       <p>
@@ -151,60 +92,87 @@
     <p>© 2025 د. أنور بدر النهدي</p>
   </footer>
 
-  <script>
-    // تجميع الملاحظات
-    let notes = JSON.parse(localStorage.getItem('dailyNotes')) || [];
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    function renderNotes() {
-      const notesList = document.getElementById('notes-list');
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAL78VeM177-NY3K2RfjQ1P3sbZvggNmqQ",
+      authDomain: "my-website-ca847.firebaseapp.com",
+      projectId: "my-website-ca847",
+      storageBucket: "my-website-ca847.appspot.com",
+      messagingSenderId: "1079208237167",
+      appId: "1:1079208237167:web:edfec99aef0af72374959a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const notesList = document.getElementById('notes-list');
+    const newNoteInput = document.getElementById('new-note');
+
+    async function loadNotes() {
       notesList.innerHTML = '';
-      notes.forEach((note, index) => {
+      const snapshot = await getDocs(collection(db, "notes"));
+      snapshot.forEach(docSnap => {
+        const note = docSnap.data();
         const div = document.createElement('div');
         div.className = 'note-item';
-        div.textContent = note;
+        div.innerHTML = `
+          <span class="note-text">${note.text}</span>
+          <div class="note-actions">
+            <button onclick="editNote('${docSnap.id}','${note.text}')">✏️</button>
+            <button onclick="deleteNote('${docSnap.id}')">🗑️</button>
+          </div>
+        `;
         notesList.appendChild(div);
       });
     }
 
-    function addNote() {
-      const newNote = document.getElementById('new-note').value.trim();
-      if(newNote){
-        notes.push(newNote);
-        localStorage.setItem('dailyNotes', JSON.stringify(notes));
-        document.getElementById('new-note').value = '';
-        renderNotes();
-      }
+    window.addNote = async function() {
+      const text = newNoteInput.value.trim();
+      if(!text) return;
+      await addDoc(collection(db, "notes"), { text: text, date: Date.now() });
+      newNoteInput.value = '';
+      loadNotes();
     }
 
-    renderNotes(); // عند تحميل الصفحة
+    window.deleteNote = async function(id){ await deleteDoc(doc(db, "notes", id)); loadNotes(); }
+    window.editNote = async function(id, oldText){ const updated = prompt("عدل الملاحظة:", oldText); if(updated !== null){ await updateDoc(doc(db, "notes", id), { text: updated }); loadNotes(); } }
+    loadNotes();
 
-    // زر PDF
+    // PDF
     document.getElementById("download-pdf").addEventListener("click", () => {
       const pdfButton = document.getElementById("download-pdf");
       const langButton = document.getElementById("toggle-language");
       pdfButton.style.display = "none";
       langButton.style.display = "none";
-
       html2pdf().from(document.body).save("Dr_Anwar_Alnahdi.pdf").then(() => {
         pdfButton.style.display = "inline-block";
         langButton.style.display = "inline-block";
       });
     });
 
-    // زر اللغة
+    // Language toggle
     const langBtn = document.getElementById('toggle-language');
     let isArabic = true;
+    const texts = {
+      ar: { name: "د. أنور بدر النهدي", title: "طبيب عام في عيادة مكافحة التدخين", about: "عنّي", aboutText: "أقوم بمساعدة المدخنين للإقلاع عن التدخين مع تقديم النصائح اللازمة.", skills: "مهاراتي", notes: "ملاحظاتي اليومية", contact: "تواصل معي", nav: ["من أنا", "مهاراتي", "ملاحظاتي", "تواصل"], pdf: "📄 تحميل PDF" },
+      en: { name: "Dr. Anwar Badr Alnahdi", title: "General Practitioner - Anti-Smoking Clinic", about: "About Me", aboutText: "I help smokers quit smoking by providing necessary advice and support.", skills: "My Skills", notes: "My Daily Notes", contact: "Contact Me", nav: ["About", "Skills", "Notes", "Contact"], pdf: "📄 Download PDF" }
+    };
+
     langBtn.addEventListener('click', () => {
-      if(isArabic){
-        document.body.style.direction = "ltr";
-        document.getElementById('name').textContent = "Dr. Anwar Badr Alnahdi";
-        document.getElementById('title').textContent = "General Practitioner - Anti-Smoking Clinic";
-        langBtn.textContent = "العربية";
-      } else {
-        location.reload();
-      }
-      isArabic = !isArabic;
-    });
-  </script>
-</body>
-</html>
+      const lang = isArabic ? "en" : "ar";
+      document.body.dir = isArabic ? "ltr" : "rtl";
+      document.getElementById('name').textContent = texts[lang].name;
+      document.getElementById('title').textContent = texts[lang].title;
+      document.getElementById('about-title').textContent = texts[lang].about;
+      document.getElementById('about-text').textContent = texts[lang].aboutText;
+      document.getElementById('skills-title').textContent = texts[lang].skills;
+      document.getElementById('notes-title').textContent = texts[lang].notes;
+      document.getElementById('contact-title').textContent = texts[lang].contact;
+      document.getElementById('nav-about').textContent = texts[lang].nav[0];
+      document.getElementById('nav-skills').textContent = texts[lang].nav[1];
+      document.getElementById('nav-notes').textContent = texts[lang].nav[2];
